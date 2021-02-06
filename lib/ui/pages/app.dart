@@ -160,10 +160,11 @@ AppBar _mainAppBar() {
       'assets/images/icon_settings.png',
       color: PaypalColors.DarkBlue,
     ),
-    title: Text(
-      "IDIDIT",
-      style: GoogleFonts.aBeeZee(
-          color: Colors.black, fontSize: 25, letterSpacing: 7),
+    title: SizedBox(
+      height: 60,
+      child: Image.asset(
+        'assets/images/logo.png',
+      ),
     ),
     centerTitle: true,
     actions: <Widget>[

@@ -38,7 +38,7 @@ class _ProfileState extends State<Profile> {
                 Image.asset('assets/images/if_1_avatar_2754574.png',
                     scale: 2.2),
                 Text(
-                  'Ragnar Lothbrok',
+                  'MR. CHARUKA WIJETHUNGA',
                   style: TextStyle(
                       fontFamily: 'worksans',
                       fontSize: 20,
@@ -52,7 +52,7 @@ class _ProfileState extends State<Profile> {
                     color: PaypalColors.LightGrey,
                     textColor: PaypalColors.DarkBlue,
                     child: Text(
-                      "paypal.me/rag.lothbrok",
+                      "camileonit.me/ididit",
                       style: TextStyle(
                           fontFamily: "worksans",
                           color: PaypalColors.DarkBlue,
@@ -100,7 +100,7 @@ class _ProfileState extends State<Profile> {
                             fontFamily: "worksans",
                             color: Colors.white,
                             fontSize: 18),
-                        initialValue: "ragnar.loth@kattlegat.com",
+                        initialValue: "charukamwijethunga@gmail.com",
                       ),
                       SizedBox(height: 10),
                       TextFormField(

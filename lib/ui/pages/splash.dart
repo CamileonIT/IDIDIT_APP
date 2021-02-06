@@ -1,7 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:recovery/ui/pages/app.dart';
-import 'package:recovery/ui/pages/dashboard.dart';
 
 class Loading extends StatefulWidget {
   @override

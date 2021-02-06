@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recovery/ui/pages/profile.dart';
 import 'package:recovery/ui/utils/util.dart';
+import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -204,9 +205,12 @@ ListView _activityList() {
             style:
                 TextStyle(fontFamily: "worksans", fontWeight: FontWeight.w300),
           ),
-          trailing: Text(
-            '-249,99 USD',
-            style: TextStyle(fontFamily: "worksans"),
+          trailing: SleekCircularSlider(
+            appearance: CircularSliderAppearance(
+                customWidths: CustomSliderWidths(progressBarWidth: 5)),
+            min: 10,
+            max: 28,
+            initialValue: 14,
           ),
         ),
       ),
