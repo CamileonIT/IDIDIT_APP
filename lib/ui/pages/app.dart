@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:recovery/ui/pages/achievements.dart';
-import 'package:recovery/ui/pages/sorryy.dart';
+import 'app/achievements.dart';
+import 'app/confession.dart';
+import 'app/home.dart';
+import 'app/sorryy.dart';
+import 'package:recovery/ui/pages/settings.dart';
 import 'package:recovery/ui/utils/util.dart';
-
-import 'detail.screen.dart';
-import 'home.dart';
 
 class App extends StatefulWidget {
   @override
@@ -102,7 +101,7 @@ class _AppState extends State<App> {
       },
       children: <Widget>[
         Home(),
-        DetailScreen(),
+        Confession(),
         Sorryy(),
         Achievements(),
       ],
@@ -134,7 +133,7 @@ class _AppState extends State<App> {
       children: <Widget>[
         Scaffold(
           backgroundColor: Colors.white,
-          appBar: _mainAppBar(),
+          appBar: _mainAppBar(context),
           body: buildPageView(),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: index,
@@ -154,11 +153,19 @@ class _AppState extends State<App> {
   }
 }
 
-AppBar _mainAppBar() {
+AppBar _mainAppBar(context) {
   return AppBar(
-    leading: Image.asset(
-      'assets/images/icon_settings.png',
-      color: PaypalColors.DarkBlue,
+    leading: GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Settings()),
+        );
+      },
+      child: Image.asset(
+        'assets/images/icon_settings.png',
+        color: PaypalColors.DarkBlue,
+      ),
     ),
     title: SizedBox(
       height: 60,

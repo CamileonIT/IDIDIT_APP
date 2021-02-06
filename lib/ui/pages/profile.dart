@@ -80,7 +80,7 @@ class _ProfileState extends State<Profile> {
                     children: <Widget>[
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: "E-mails",
+                          labelText: "E-mail",
                           labelStyle: TextStyle(color: Colors.white),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
@@ -105,7 +105,7 @@ class _ProfileState extends State<Profile> {
                       SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: "Phone Numbers",
+                          labelText: "Age",
                           labelStyle: TextStyle(color: Colors.white),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
@@ -125,12 +125,12 @@ class _ProfileState extends State<Profile> {
                             fontFamily: "worksans",
                             color: Colors.white,
                             fontSize: 18),
-                        initialValue: "01 12 45 87 66",
+                        initialValue: "32",
                       ),
                       SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: "Addresses",
+                          labelText: "Life Quote",
                           labelStyle: TextStyle(color: Colors.white),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
@@ -150,7 +150,7 @@ class _ProfileState extends State<Profile> {
                             fontFamily: "worksans",
                             color: Colors.white,
                             fontSize: 18),
-                        initialValue: "Kattegat, 9600, Danemark",
+                        initialValue: "I Can Do It.",
                       ),
                     ],
                   ),
@@ -162,7 +162,7 @@ class _ProfileState extends State<Profile> {
                     color: PaypalColors.LightGrey,
                     textColor: PaypalColors.DarkBlue,
                     child: Text(
-                      "Log Out",
+                      "Update",
                       style: TextStyle(
                           fontFamily: "worksans",
                           color: PaypalColors.DarkBlue,

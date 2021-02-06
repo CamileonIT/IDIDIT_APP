@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recovery/ui/pages/profile.dart';
 import 'package:recovery/ui/utils/util.dart';
+import 'file:///C:/Users/CharukaWijethunga/AndroidStudioProjects/recovery/lib/ui/widgets/home/quit_tile.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 class Home extends StatefulWidget {
@@ -50,7 +52,7 @@ Container _paypalCard(context) {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Image.asset('assets/images/Paypal-logo.png', height: 30),
+                Image.asset('assets/images/logo.png', height: 20),
                 SizedBox(width: 20),
                 Text(
                   'SAVINGS',
@@ -68,9 +70,10 @@ Container _paypalCard(context) {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Image.asset('assets/images/chip_thumb.png'),
+            SizedBox(
+                width: 80, child: Image.asset('assets/images/chip_thumb.png')),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Row(
                   children: <Widget>[
@@ -86,22 +89,12 @@ Container _paypalCard(context) {
                     SizedBox(width: 13),
                   ],
                 ),
-                Row(
-                  children: <Widget>[
-                    SizedBox(width: 13),
-                    Text(
-                      '12 Years',
-                      style: TextStyle(fontFamily: "sfprotext", fontSize: 20),
-                    ),
-                    SizedBox(width: 13),
-                  ],
-                ),
                 Text(
                   'Available',
                   style: TextStyle(
                       fontFamily: "worksans",
                       color: PaypalColors.Grey,
-                      fontSize: 17),
+                      fontSize: 12),
                 ),
               ],
             )
@@ -109,6 +102,7 @@ Container _paypalCard(context) {
         ),
         SizedBox(height: 20),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             SizedBox(
               height: 25,
@@ -137,7 +131,19 @@ Container _paypalCard(context) {
                 ),
               ),
             ),
-            Spacer()
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SizedBox(
+                    width: 40,
+                    height: 50,
+                    child: Image.asset('assets/images/visa.png')),
+                SizedBox(
+                    width: 40,
+                    height: 50,
+                    child: Image.asset('assets/images/master_card.png')),
+              ],
+            ),
           ],
         ),
       ],
@@ -188,91 +194,12 @@ ListView _activityList() {
     physics: ClampingScrollPhysics(),
     padding: EdgeInsets.all(15),
     children: <Widget>[
-      Container(
-        margin: EdgeInsets.only(bottom: 15),
-        decoration: _tileDecoration(),
-        child: ListTile(
-          leading: Image.asset('assets/images/Nike.png'),
-          title: Text(
-            'Nike Medieval',
-            style: TextStyle(
-                fontFamily: "worksans",
-                fontWeight: FontWeight.w500,
-                color: Colors.black),
-          ),
-          subtitle: Text(
-            'Jan 21, 2019',
-            style:
-                TextStyle(fontFamily: "worksans", fontWeight: FontWeight.w300),
-          ),
-          trailing: SleekCircularSlider(
-            appearance: CircularSliderAppearance(
-                customWidths: CustomSliderWidths(progressBarWidth: 5)),
-            min: 10,
-            max: 28,
-            initialValue: 14,
-          ),
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.only(bottom: 15),
-        decoration: _tileDecoration(),
-        child: ListTile(
-          leading: Container(
-            width: 42,
-            child: Image.asset('assets/images/if_9_avatar_2754584.png'),
-          ),
-          title: Text(
-            'Lagertha Lothbrok',
-            style: TextStyle(
-                fontFamily: "worksans",
-                fontWeight: FontWeight.w500,
-                color: Colors.black),
-          ),
-          subtitle: Text(
-            'Jan 18, 2019',
-            style:
-                TextStyle(fontFamily: "worksans", fontWeight: FontWeight.w300),
-          ),
-          trailing: Text(
-            '+102,00 USD',
-            style: TextStyle(fontFamily: "worksans"),
-          ),
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.only(bottom: 15),
-        decoration: _tileDecoration(),
-        child: ListTile(
-          leading: ClipOval(
-            child: Container(
-              color: PaypalColors.LightBlue,
-              child: Image.asset(
-                "assets/images/icon_shop.png",
-                fit: BoxFit.scaleDown,
-                width: 35.0,
-                height: 35.0,
-              ),
-            ),
-          ),
-          title: Text(
-            'Spotify Finance Limited',
-            style: TextStyle(
-                fontFamily: "worksans",
-                fontWeight: FontWeight.w500,
-                color: Colors.black),
-          ),
-          subtitle: Text(
-            'Jan 11, 2019',
-            style:
-                TextStyle(fontFamily: "worksans", fontWeight: FontWeight.w300),
-          ),
-          trailing: Text(
-            '-9,99 USD',
-            style: TextStyle(fontFamily: "worksans"),
-          ),
-        ),
-      ),
+      QuitTile(),
+      QuitTile(),
+      QuitTile(),
+      QuitTile(),
+      QuitTile(),
+      QuitTile(),
     ],
   );
 }

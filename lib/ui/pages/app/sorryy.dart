@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:recovery/ui/pages/home.dart';
-import 'package:recovery/ui/widgets/gradient.button.dart';
+import 'file:///C:/Users/CharukaWijethunga/AndroidStudioProjects/recovery/lib/ui/widgets/confession/gradient.button.blue.dart';
+import 'file:///C:/Users/CharukaWijethunga/AndroidStudioProjects/recovery/lib/ui/widgets/sorryy/gradient.button.red.dart';
 import 'package:recovery/ui/widgets/header.widget.dart';
 
-class DetailScreen extends StatefulWidget {
+class Sorryy extends StatefulWidget {
   @override
-  _DetailScreenState createState() => _DetailScreenState();
+  _SorryyState createState() => _SorryyState();
 }
 
-class _DetailScreenState extends State<DetailScreen> {
+class _SorryyState extends State<Sorryy> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -21,13 +21,13 @@ class _DetailScreenState extends State<DetailScreen> {
           child: Column(
             children: <Widget>[
               HeaderDetail(
-                image: "assets/images/confession_main.png",
+                image: "assets/images/sorryy_main.png",
                 onBackPress: () {
                   Navigator.pop(context);
                 },
               ),
               ContentDetail(
-                title: "You are not alone. Do you have any other addiction?",
+                title: "Err! Did you break any promise?",
                 onPress: () {
                   showDialog(
                     context: context,
@@ -44,7 +44,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             ),
                             Container(
                               margin: EdgeInsets.only(top: 20),
-                              child: GradientButton(
+                              child: GradientButtonBlue(
                                 text: "Konfirmasi",
                                 onPress: () {
                                   Navigator.of(context).pop();
@@ -104,8 +104,8 @@ class ContentDetail extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(bottom: 30),
             padding: const EdgeInsets.symmetric(vertical: 15),
-            child: GradientButton(
-              text: "Yes I have. Please help me.",
+            child: GradientButtonRed(
+              text: "Yes I did. Please forgive me.",
               onPress: () {},
             ),
           ),

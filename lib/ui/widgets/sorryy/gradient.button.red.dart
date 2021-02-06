@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class GradientButton extends StatelessWidget {
+class GradientButtonRed extends StatelessWidget {
   final String text;
   final List<Color> colors;
   final Function onPress;
 
-  const GradientButton({
+  const GradientButtonRed({
     Key key,
     this.text = 'Button',
     this.colors,
@@ -22,8 +22,8 @@ class GradientButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(50),
         gradient: LinearGradient(
           colors: [
-            Colors.blue,
-            Colors.blueAccent,
+            Colors.red,
+            Colors.redAccent,
           ],
           begin: Alignment.topRight,
           end: Alignment(0, 5),
