@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recovery/ui/pages/profile.dart';
+import 'package:recovery/ui/screens/profile.dart';
 import 'package:recovery/ui/utils/util.dart';
 import 'file:///C:/Users/CharukaWijethunga/AndroidStudioProjects/recovery/lib/ui/widgets/home/quit_tile.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';

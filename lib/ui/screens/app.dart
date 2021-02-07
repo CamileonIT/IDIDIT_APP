@@ -3,7 +3,7 @@ import 'app/achievements.dart';
 import 'app/confession.dart';
 import 'app/home.dart';
 import 'app/sorryy.dart';
-import 'package:recovery/ui/pages/settings.dart';
+import 'package:recovery/ui/screens/settings.dart';
 import 'package:recovery/ui/utils/util.dart';
 
 class App extends StatefulWidget {

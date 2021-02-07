@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recovery/ui/pages/add/landing.dart';
+import 'package:recovery/ui/screens/add/landing.dart';
 import 'file:///C:/Users/CharukaWijethunga/AndroidStudioProjects/recovery/lib/ui/widgets/confession/gradient.button.blue.dart';
 import 'package:recovery/ui/widgets/header.widget.dart';
 

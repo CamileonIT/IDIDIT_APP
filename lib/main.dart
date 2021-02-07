@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:recovery/ui/pages/splash.dart';
+import 'package:recovery/db_test.dart';
+import 'package:recovery/ui/screens/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Loading(),
+      home: DB_Test(),
     );
   }
 }

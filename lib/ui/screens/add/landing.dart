@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recovery/ui/pages/add/slider_layout_view.dart';
+import 'package:recovery/ui/screens/add/slider_layout_view.dart';
 
 class LandingPage extends StatefulWidget {
   @override
