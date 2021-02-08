@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:recovery/data/models/slider.dart';
 import 'package:recovery/ui/utils/constants.dart';
 
@@ -47,7 +49,22 @@ class SlideItem extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-        )
+        ),
+        index == 0
+            ? Text("1")
+            : index == 1
+                ? TextField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      WhitelistingTextInputFormatter.digitsOnly
+                    ],
+                  )
+                : TextField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      WhitelistingTextInputFormatter.digitsOnly
+                    ],
+                  )
       ],
     );
   }

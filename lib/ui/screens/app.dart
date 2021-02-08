@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recovery/data/Test/interfaceDesign.dart';
 import 'app/achievements.dart';
 import 'app/confession.dart';
 import 'app/home.dart';
@@ -103,7 +104,7 @@ class _AppState extends State<App> {
         Home(),
         Confession(),
         Sorryy(),
-        Achievements(),
+        ViewData1(),
       ],
     );
   }

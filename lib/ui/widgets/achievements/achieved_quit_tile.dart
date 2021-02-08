@@ -17,14 +17,14 @@ class _AchievedQuitTileState extends State<AchievedQuitTile> {
         leading: SizedBox(
             width: 40, child: Image.asset('assets/images/video_games.png')),
         title: Text(
-          'Video Games',
+          "addictions[index].title",
           style: TextStyle(
               fontFamily: "worksans",
               fontWeight: FontWeight.w500,
               color: Colors.black),
         ),
         subtitle: Text(
-          'Last : Jan 21, 2019',
+          "",
           style: TextStyle(
               fontFamily: "worksans",
               fontWeight: FontWeight.w300,
@@ -35,7 +35,7 @@ class _AchievedQuitTileState extends State<AchievedQuitTile> {
             SizedBox(
                 height: 45, child: Image.asset('assets/images/trophy.png')),
             Text(
-              "Last Achievement : 24 Hours",
+              "Last Achievement : ",
               style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold),
             )
           ],

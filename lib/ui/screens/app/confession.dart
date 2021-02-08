@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recovery/data/Test/addData.dart';
 import 'package:recovery/ui/screens/add/landing.dart';
 import 'file:///C:/Users/CharukaWijethunga/AndroidStudioProjects/recovery/lib/ui/widgets/confession/gradient.button.blue.dart';
 import 'package:recovery/ui/widgets/header.widget.dart';
@@ -109,7 +110,7 @@ class ContentDetail extends StatelessWidget {
               onPress: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LandingPage()),
+                  MaterialPageRoute(builder: (context) => AddData()),
                 );
               },
             ),
