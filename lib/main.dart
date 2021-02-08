@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:recovery/data/Test/interface.dart';
 import 'package:recovery/ui/screens/splash.dart';
 
 void main() {

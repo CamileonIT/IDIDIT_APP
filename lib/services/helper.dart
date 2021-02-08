@@ -3,7 +3,7 @@ import 'dart:io' as io;
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'model.dart';
+import '../data/models/addiction.dart';
 
 class DBHelper {
   static Database _db;

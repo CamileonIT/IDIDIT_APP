@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recovery/ui/screens/profile.dart';
 import 'package:recovery/ui/utils/util.dart';
-import 'file:///C:/Users/CharukaWijethunga/AndroidStudioProjects/recovery/lib/ui/widgets/home/quit_tile.dart';
-import 'package:sleek_circular_slider/sleek_circular_slider.dart';
+import 'package:recovery/ui/widgets/home/commited.dart';
+import 'package:recovery/ui/utils/globals.dart' as globals;
 
 class Home extends StatefulWidget {
   @override
@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           _paypalCard(context),
           _activityText(),
-          _activityList(),
+          Commited(),
         ],
       ),
     );
@@ -83,7 +83,7 @@ Container _paypalCard(context) {
                     ),
                     SizedBox(width: 13),
                     Text(
-                      '452,20',
+                      '${globals.sumOfMoneyWasted}',
                       style: TextStyle(fontFamily: "sfprotext", fontSize: 25),
                     ),
                     SizedBox(width: 13),
@@ -185,38 +185,5 @@ Container _activityText() {
         ),
       ],
     ),
-  );
-}
-
-ListView _activityList() {
-  return ListView(
-    shrinkWrap: true,
-    physics: ClampingScrollPhysics(),
-    padding: EdgeInsets.all(15),
-    children: <Widget>[
-      QuitTile(),
-      QuitTile(),
-      QuitTile(),
-      QuitTile(),
-      QuitTile(),
-      QuitTile(),
-    ],
-  );
-}
-
-BoxDecoration _tileDecoration() {
-  return BoxDecoration(
-    color: Colors.white,
-    border: Border.all(color: Colors.white, width: 0, style: BorderStyle.solid),
-    borderRadius: BorderRadius.all(
-      Radius.circular(5.0),
-    ),
-    boxShadow: [
-      BoxShadow(
-          color: PaypalColors.LightGrey19,
-          offset: Offset(0, 0),
-          blurRadius: 3,
-          spreadRadius: 1)
-    ],
   );
 }

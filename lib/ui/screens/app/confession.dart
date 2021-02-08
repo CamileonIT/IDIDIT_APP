@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recovery/data/Test/addData.dart';
-import 'package:recovery/ui/screens/add/landing.dart';
-import 'file:///C:/Users/CharukaWijethunga/AndroidStudioProjects/recovery/lib/ui/widgets/confession/gradient.button.blue.dart';
+import 'package:recovery/ui/widgets/confession/add_data.dart';
+import 'package:recovery/ui/widgets/confession/gradient.button.blue.dart';
+
 import 'package:recovery/ui/widgets/header.widget.dart';
 
 class Confession extends StatefulWidget {
@@ -23,41 +23,10 @@ class _ConfessionState extends State<Confession> {
             children: <Widget>[
               HeaderDetail(
                 image: "assets/images/confession_main.png",
-                onBackPress: () {
-                  Navigator.pop(context);
-                },
               ),
               ContentDetail(
                 title: "You are not alone. Do you have any other addiction?",
-                onPress: () {
-                  showDialog(
-                    context: context,
-                    child: AlertDialog(
-                      content: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              "Berhasil memesan tiket pendakian ke",
-                              style: TextStyle(fontSize: 20),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 20),
-                              child: GradientButtonBlue(
-                                text: "Konfirmasi",
-                                onPress: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                },
+                onPress: () {},
               )
             ],
           ),

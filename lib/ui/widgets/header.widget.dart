@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class HeaderDetail extends StatelessWidget {
   final String image;
-  final bool isLike;
-  final Function onBackPress, onLikePress;
 
   const HeaderDetail({
     Key key,
     @required this.image,
-    this.isLike = false,
-    @required this.onBackPress,
-    @required this.onLikePress,
   }) : super(key: key);
 
   @override

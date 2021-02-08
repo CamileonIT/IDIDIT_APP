@@ -21,9 +21,6 @@ class _SorryyState extends State<Sorryy> {
             children: <Widget>[
               HeaderDetail(
                 image: "assets/images/sorryy_main.png",
-                onBackPress: () {
-                  Navigator.pop(context);
-                },
               ),
               ContentDetail(
                 title: "Err! Did you break any promise?",

@@ -2,7 +2,7 @@ class AchievementCalculator {
   static String lastAchievement(String lastSeen) {
     DateTime before = DateTime.parse(lastSeen);
     DateTime now = DateTime.now().toUtc();
-    int days = before.difference(now).inDays;
+    int days = now.difference(before).inDays;
     if (days < 1) {
       return "Made the Decision";
     } else if (days < 3) {
@@ -29,9 +29,9 @@ class AchievementCalculator {
   }
 
   static String nextAchievement(String lastSeen) {
-    DateTime before = lastSeen as DateTime;
+    DateTime before = DateTime.parse(lastSeen);
     DateTime now = DateTime.now().toUtc();
-    int days = before.difference(now).inDays;
+    int days = now.difference(before).inDays;
     if (days < 1) {
       return "24 Hours";
     } else if (days < 3) {
@@ -58,10 +58,10 @@ class AchievementCalculator {
   }
 
   static double percentageAchievement(String lastSeen) {
-    DateTime before = lastSeen as DateTime;
+    DateTime before = DateTime.parse(lastSeen);
     DateTime now = DateTime.now().toUtc();
-    int days = before.difference(now).inDays;
-    int minutes = before.difference(now).inMinutes;
+    int days = now.difference(before).inDays;
+    int minutes = now.difference(before).inMinutes;
     if (days < 1) {
       return (minutes * 100 / 1440);
     } else if (days < 3) {

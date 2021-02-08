@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'helper.dart';
-import 'model.dart';
+import 'package:recovery/data/models/addiction.dart';
+import 'package:recovery/services/helper.dart';
+import 'package:searchable_dropdown/searchable_dropdown.dart';
 
 class AddData extends StatefulWidget {
   @override
@@ -12,20 +13,54 @@ class _AddDataState extends State<AddData> {
   final GlobalKey<FormState> _formStateKey = GlobalKey<FormState>();
   Future<List<Addiction>> students;
   String _title;
-  int _moneyWasted;
-  int _timeWasted;
+  int _moneyWasted = 0;
+  int _timeWasted = 0;
   bool isUpdate = false;
   int studentIdForUpdate;
   DBHelper dbHelper;
   final _studentNameController = TextEditingController();
   final _moneyWastedController = TextEditingController();
   final _timeWastedController = TextEditingController();
+  List _categories = [
+    "Smoking",
+    "Drinking",
+    "Drugs",
+    "Tablets",
+    "Weed",
+    "Porn",
+    "Video Games",
+    "Watching TV",
+    "Impulsive Shopping",
+    "Facebook",
+    "Instagram",
+    "Tik Tok",
+    "Youtube",
+    "Snapchat",
+    "Fast Food",
+    "Sugar"
+        "Overreacting",
+    "Meat",
+    "Coke",
+    "Coffee",
+    "Gambling",
+    "Procastination",
+    "Cursing",
+    "Lie",
+    "Quarrel"
+  ];
+  List<DropdownMenuItem> _categoriesItems = [];
 
   @override
   void initState() {
     super.initState();
     dbHelper = DBHelper();
     refreshStudentList();
+    for (var i = 0; i < _categories.length; i++) {
+      _categoriesItems.add(DropdownMenuItem(
+        child: Text(_categories[i]),
+        value: _categories[i],
+      ));
+    }
   }
 
   refreshStudentList() {
@@ -44,47 +79,35 @@ class _AddDataState extends State<AddData> {
         children: <Widget>[
           Form(
             key: _formStateKey,
-            autovalidate: true,
             child: Column(
               children: <Widget>[
-                //Title
                 Padding(
-                  padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                  child: TextFormField(
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please Enter Title';
-                      }
-                      if (value.trim() == "")
-                        return "Only Space is Not Valid!!!";
-                      return null;
-                    },
-                    onSaved: (value) {
-                      _title = value;
-                    },
-                    controller: _studentNameController,
-                    decoration: InputDecoration(
-                        focusedBorder: new UnderlineInputBorder(
-                            borderSide: new BorderSide(
-                                color: Colors.purple,
-                                width: 2,
-                                style: BorderStyle.solid)),
-                        // hintText: "Student Name",
-                        labelText: "Student Name",
-                        icon: Icon(
-                          Icons.business_center,
-                          color: Colors.purple,
-                        ),
-                        fillColor: Colors.white,
-                        labelStyle: TextStyle(
-                          color: Colors.purple,
-                        )),
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 80,
+                    width: 200,
+                    child: SearchableDropdown.single(
+                      items: _categoriesItems,
+                      value: _title,
+                      hint: "Select one",
+                      searchHint: "Select one",
+                      onChanged: (value) {
+                        setState(() {
+                          _title = value;
+                        });
+                      },
+                      isExpanded: true,
+                    ),
                   ),
                 ),
+                //Title
+
                 //Money Wasted
+
                 Padding(
                   padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
                     validator: (value) {
                       if (value.isEmpty) {
                         return 'Please Enter Money Wasted';
@@ -119,6 +142,7 @@ class _AddDataState extends State<AddData> {
                 Padding(
                   padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
                     validator: (value) {
                       if (value.isEmpty) {
                         return 'Please Enter time Wasted';
