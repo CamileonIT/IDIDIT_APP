@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "769777576354",
+    "project_id": "ididit-187d3",
+    "storage_bucket": "ididit-187d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769777576354:android:3dba0e2187e5416820eafb",
+        "android_client_info": {
+          "package_name": "com.camileonit.recovery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769777576354-0b1ulu52ntq9dju1lcr7f019u1h3vnfc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.camileonit.recovery",
+            "certificate_hash": "d120f1ba8e536e6f6ead2cacc0084d681b8dd4ba"
+          }
+        },
+        {
+          "client_id": "769777576354-15pm3524fauojdbsjt31mjbq2tj8ltaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK22IKZCt46n4c_VKyEWAZwLL1-QY46g0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769777576354-15pm3524fauojdbsjt31mjbq2tj8ltaq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

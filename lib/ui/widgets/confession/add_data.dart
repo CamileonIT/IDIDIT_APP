@@ -118,14 +118,15 @@ class _AddDataState extends State<AddData> {
             child: Column(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
                   child: Container(
                     height: 80,
                     child: SearchableDropdown.single(
+                      clearIcon: null,
                       items: _categoriesItems,
                       value: _title,
-                      hint: "Select one",
-                      searchHint: "Select one",
+                      hint: "Select Your Addiction",
+                      searchHint: "Select Your Addiction",
                       onChanged: (value) {
                         setState(() {
                           _title = value;
@@ -140,7 +141,7 @@ class _AddDataState extends State<AddData> {
                 //Money Wasted
 
                 Padding(
-                  padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                  padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
                   child: TextFormField(
                     keyboardType: TextInputType.number,
                     validator: (value) {
@@ -156,26 +157,17 @@ class _AddDataState extends State<AddData> {
                     },
                     controller: _moneyWastedController,
                     decoration: InputDecoration(
-                        focusedBorder: new UnderlineInputBorder(
-                            borderSide: new BorderSide(
-                                color: Colors.purple,
-                                width: 2,
-                                style: BorderStyle.solid)),
-                        // hintText: "Student Name",
-                        labelText: "Money Wasted",
-                        icon: Icon(
-                          Icons.business_center,
-                          color: Colors.purple,
-                        ),
-                        fillColor: Colors.white,
-                        labelStyle: TextStyle(
-                          color: Colors.purple,
-                        )),
+                      hintText: 'Money Wasted',
+                      contentPadding:
+                          EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(32.0)),
+                    ),
                   ),
                 ),
                 //Time Wasted
                 Padding(
-                  padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                  padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
                   child: TextFormField(
                     keyboardType: TextInputType.number,
                     validator: (value) {
@@ -191,21 +183,12 @@ class _AddDataState extends State<AddData> {
                     },
                     controller: _timeWastedController,
                     decoration: InputDecoration(
-                        focusedBorder: new UnderlineInputBorder(
-                            borderSide: new BorderSide(
-                                color: Colors.purple,
-                                width: 2,
-                                style: BorderStyle.solid)),
-                        // hintText: "Student Name",
-                        labelText: "Time Wasted",
-                        icon: Icon(
-                          Icons.business_center,
-                          color: Colors.purple,
-                        ),
-                        fillColor: Colors.white,
-                        labelStyle: TextStyle(
-                          color: Colors.purple,
-                        )),
+                      hintText: 'Time Wasted',
+                      contentPadding:
+                          EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(32.0)),
+                    ),
                   ),
                 ),
               ],

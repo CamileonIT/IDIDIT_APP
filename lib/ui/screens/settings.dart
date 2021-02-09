@@ -164,6 +164,48 @@ class _SettingsState extends State<Settings> {
                 ),
               ],
             ),
+            SettingsSection(
+              title: 'Sync Data',
+              tiles: [
+                SettingsTile.switchTile(
+                  title: 'Sync Your Data With Google',
+                  trailing: Text("Pro"),
+                  leading: Stack(
+                    children: [
+                      Icon(
+                        Icons.data_usage,
+                        color: Colors.blue,
+                      ),
+                      Positioned(
+                        top: 0,
+                        left: 8,
+                        child: new Container(
+                          padding: EdgeInsets.all(2),
+                          decoration: new BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          constraints: BoxConstraints(
+                            minWidth: 14,
+                            minHeight: 14,
+                          ),
+                          child: Text(
+                            'Pro',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  switchValue: false,
+                  onToggle: (bool value) {},
+                ),
+              ],
+            ),
           ],
         ),
       ),
