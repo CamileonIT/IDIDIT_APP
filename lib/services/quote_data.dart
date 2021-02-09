@@ -72,33 +72,11 @@ class _QuoteDataState extends State<QuoteData>
                     IconButton(
                       icon: Icon(
                         Icons.share,
-                        color: Colors.black,
+                        color: Colors.blue,
                       ),
                       onPressed: () {
                         Share.share(
                             '${snapshot.data.quoteText}--${snapshot.data.quoteAuthor}');
-                      },
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        Icons.favorite_border,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        Quote q = Quote(
-                            quoteId: null,
-                            quoteText: snapshot.data.quoteText,
-                            quoteAuthor: snapshot.data.quoteAuthor);
-                        dbHelper.saveQuote(q);
-                        final snackBar = SnackBar(
-                          backgroundColor: Colors.black,
-                          content: Text(
-                            'Added to favorites',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 15.0),
-                          ),
-                        );
-                        Scaffold.of(context).showSnackBar(snackBar);
                       },
                     ),
                   ],

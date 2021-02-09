@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:recovery/data/models/addiction.dart';
 import 'package:recovery/services/addictiondb_helper.dart';
-import 'package:recovery/ui/screens/settings.dart';
-import 'package:recovery/ui/utils/util.dart';
 import 'package:recovery/ui/widgets/confession/gradient.button.blue.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
 
@@ -75,18 +73,14 @@ class _AddDataState extends State<AddData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Settings()),
-            );
-          },
-          child: Image.asset(
-            'assets/images/icon_settings.png',
-            color: PaypalColors.DarkBlue,
-          ),
-        ),
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.blue,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
         title: SizedBox(
           height: 60,
           child: Image.asset(
@@ -94,10 +88,6 @@ class _AddDataState extends State<AddData> {
           ),
         ),
         centerTitle: true,
-        actions: <Widget>[
-          Image.asset('assets/images/icon_school-bell.png',
-              color: PaypalColors.DarkBlue)
-        ],
         backgroundColor: Colors.white,
         elevation: 0.0,
       ),

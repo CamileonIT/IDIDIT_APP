@@ -11,6 +11,14 @@ class _NotificationViewState extends State<NotificationView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: Colors.blue,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
           title: SizedBox(
             height: 60,
             child: Image.asset(

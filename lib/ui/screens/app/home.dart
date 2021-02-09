@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recovery/services/sign_in.dart';
 import 'package:recovery/ui/screens/profile.dart';
 import 'package:recovery/ui/utils/util.dart';
 import 'package:recovery/ui/widgets/home/commited.dart';
@@ -114,7 +115,7 @@ Container _debitCard(context) {
                 color: PaypalColors.LightGrey,
                 textColor: PaypalColors.DarkBlue,
                 child: Text(
-                  "MR.CHARUKA WIJETHUNGA",
+                  "$name",
                   style: TextStyle(
                       fontFamily: "worksans",
                       color: PaypalColors.DarkBlue,

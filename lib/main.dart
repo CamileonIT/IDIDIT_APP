@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:recovery/ui/screens/splash.dart';
+import 'package:recovery/ui/screens/login_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,9 +17,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Recovery',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Loading(),
+          primarySwatch: Colors.blue,
+          iconTheme: IconThemeData(
+            color: Colors.blue,
+          )),
+      home: LoginPage(),
     );
   }
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:community_material_icon/community_material_icon.dart';
+import 'package:recovery/services/sign_in.dart';
 import 'package:recovery/ui/utils/util.dart';
+
+import 'login_page.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -17,7 +20,7 @@ class _ProfileState extends State<Profile> {
       debugShowCheckedModeBanner: false,
       home: Container(
         child: Scaffold(
-          backgroundColor: PaypalColors.DarkBlue,
+          backgroundColor: Colors.blue,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
@@ -35,10 +38,17 @@ class _ProfileState extends State<Profile> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Image.asset('assets/images/if_1_avatar_2754574.png',
-                    scale: 2.2),
+                Container(
+                    width: 140.0,
+                    height: 140.0,
+                    decoration: new BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: new DecorationImage(
+                            fit: BoxFit.fill,
+                            image: new NetworkImage(imageUrl)))),
+                SizedBox(height: 25),
                 Text(
-                  'MR. CHARUKA WIJETHUNGA',
+                  '$name',
                   style: TextStyle(
                       fontFamily: 'worksans',
                       fontSize: 20,
@@ -58,16 +68,7 @@ class _ProfileState extends State<Profile> {
                           color: PaypalColors.DarkBlue,
                           fontSize: 14),
                     ),
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute<Null>(
-                          builder: (BuildContext context) {
-                            return Profile();
-                          },
-                          fullscreenDialog: true,
-                        ),
-                      );
-                    },
+                    onPressed: () {},
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
@@ -100,58 +101,9 @@ class _ProfileState extends State<Profile> {
                             fontFamily: "worksans",
                             color: Colors.white,
                             fontSize: 18),
-                        initialValue: "charukamwijethunga@gmail.com",
+                        initialValue: "$email",
                       ),
                       SizedBox(height: 10),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "Age",
-                          labelStyle: TextStyle(color: Colors.white),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                          // contentPadding: EdgeInsets.only(top: 40, bottom: 20),
-                          suffixIcon: Padding(
-                            padding: const EdgeInsetsDirectional.only(
-                                top: 18, start: 50),
-                            child:
-                                Icon(Icons.chevron_right, color: Colors.white),
-                          ),
-                        ),
-                        style: TextStyle(
-                            fontFamily: "worksans",
-                            color: Colors.white,
-                            fontSize: 18),
-                        initialValue: "32",
-                      ),
-                      SizedBox(height: 10),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "Life Quote",
-                          labelStyle: TextStyle(color: Colors.white),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                          // contentPadding: EdgeInsets.only(top: 40, bottom: 20),
-                          suffixIcon: Padding(
-                            padding: const EdgeInsetsDirectional.only(
-                                top: 18, start: 50),
-                            child:
-                                Icon(Icons.chevron_right, color: Colors.white),
-                          ),
-                        ),
-                        style: TextStyle(
-                            fontFamily: "worksans",
-                            color: Colors.white,
-                            fontSize: 18),
-                        initialValue: "I Can Do It.",
-                      ),
                     ],
                   ),
                 ),
@@ -162,13 +114,19 @@ class _ProfileState extends State<Profile> {
                     color: PaypalColors.LightGrey,
                     textColor: PaypalColors.DarkBlue,
                     child: Text(
-                      "Update",
+                      "Logout",
                       style: TextStyle(
                           fontFamily: "worksans",
                           color: PaypalColors.DarkBlue,
                           fontSize: 18),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      signOutGoogle();
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(builder: (context) {
+                        return LoginPage();
+                      }), ModalRoute.withName('/'));
+                    },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),

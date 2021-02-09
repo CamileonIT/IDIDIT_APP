@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:recovery/ui/utils/util.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 class Settings extends StatefulWidget {
@@ -12,6 +11,14 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.blue,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
         title: SizedBox(
           height: 60,
           child: Image.asset(
@@ -19,10 +26,6 @@ class _SettingsState extends State<Settings> {
           ),
         ),
         centerTitle: true,
-        actions: <Widget>[
-          Image.asset('assets/images/icon_school-bell.png',
-              color: PaypalColors.DarkBlue)
-        ],
         backgroundColor: Colors.white,
         elevation: 0.0,
       ),
@@ -206,6 +209,52 @@ class _SettingsState extends State<Settings> {
                 ),
               ],
             ),
+            SettingsSection(
+              title: "Updates",
+              tiles: [
+                SettingsTile(
+                  leading: Icon(
+                    Icons.update,
+                    color: Colors.blue,
+                  ),
+                  title: "Check the latest update",
+                  trailing: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: BorderSide(color: Colors.blue)),
+                    color: Colors.blue,
+                    onPressed: () {},
+                    child: Text(
+                      "Update",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SettingsSection(
+              title: "Pro Edition",
+              tiles: [
+                SettingsTile(
+                  leading: Icon(
+                    Icons.add_chart,
+                    color: Colors.blue,
+                  ),
+                  title: "\$2.99 Per Month",
+                  trailing: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: BorderSide(color: Colors.red)),
+                    color: Colors.redAccent,
+                    onPressed: () {},
+                    child: Text(
+                      "Subscribe",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),

@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:recovery/ui/screens/app.dart';
+import 'package:recovery/ui/screens/login_page.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class _LoadingState extends State<Loading> {
         const Duration(seconds: 5),
         () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => App()),
+              MaterialPageRoute(builder: (context) => LoginPage()),
             ));
   }
 

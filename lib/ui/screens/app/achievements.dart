@@ -48,7 +48,7 @@ class _AchievementsState extends State<Achievements> {
                     itemBuilder: (context, i) {
                       return Container(
                         height: 75,
-                        margin: EdgeInsets.all(9),
+                        margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
                         decoration: _tileDecoration(),
                         child: ListTile(
                           leading: SizedBox(
