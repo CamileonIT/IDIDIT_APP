@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'file:///C:/Users/CharukaWijethunga/AndroidStudioProjects/recovery/lib/ui/widgets/sorryy/gradient.button.red.dart';
 import 'package:recovery/ui/widgets/header.widget.dart';
+import 'package:recovery/ui/widgets/sorryy/reset_data.dart';
 
 class Sorryy extends StatefulWidget {
   @override
@@ -74,7 +75,12 @@ class ContentDetail extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 15),
             child: GradientButtonRed(
               text: "Yes I did. Please forgive me.",
-              onPress: () {},
+              onPress: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ResetData()),
+                );
+              },
             ),
           ),
         ],

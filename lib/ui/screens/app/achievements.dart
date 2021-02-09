@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:recovery/data/models/addiction.dart';
 
 import 'package:recovery/services/achievement_calculator.dart';
-import 'package:recovery/services/helper.dart';
+import 'package:recovery/services/addictiondb_helper.dart';
 
 class Achievements extends StatefulWidget {
   @override
@@ -47,9 +47,8 @@ class _AchievementsState extends State<Achievements> {
                     itemCount: snapshot.data.length,
                     itemBuilder: (context, i) {
                       return Container(
-                        height: 80,
+                        height: 75,
                         margin: EdgeInsets.all(9),
-                        padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                         decoration: _tileDecoration(),
                         child: ListTile(
                           leading: SizedBox(

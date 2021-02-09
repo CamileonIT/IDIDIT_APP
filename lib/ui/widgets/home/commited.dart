@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recovery/data/models/addiction.dart';
 import 'package:recovery/services/achievement_calculator.dart';
-import 'package:recovery/services/helper.dart';
+import 'package:recovery/services/addictiondb_helper.dart';
 import 'package:recovery/ui/utils/globals.dart' as globals;
 import 'package:recovery/services/wastage_calculator.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';

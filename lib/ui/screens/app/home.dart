@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          _paypalCard(context),
+          _debitCard(context),
           _activityText(),
           Commited(),
         ],
@@ -25,11 +25,15 @@ class _HomeState extends State<Home> {
   }
 }
 
-Container _paypalCard(context) {
+Container _debitCard(context) {
   return Container(
     margin: EdgeInsets.all(15),
     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 11),
     decoration: BoxDecoration(
+      image: DecorationImage(
+        image: AssetImage("assets/images/world_map.png"),
+        fit: BoxFit.contain,
+      ),
       color: Colors.white,
       border:
           Border.all(color: Colors.white, width: 0, style: BorderStyle.solid),
@@ -79,9 +83,9 @@ Container _paypalCard(context) {
                   children: <Widget>[
                     Text(
                       '\$',
-                      style: TextStyle(fontFamily: "vistolsans", fontSize: 25),
+                      style: TextStyle(fontFamily: "sfprotext", fontSize: 25),
                     ),
-                    SizedBox(width: 13),
+                    SizedBox(width: 8),
                     Text(
                       '${globals.sumOfMoneyWasted}',
                       style: TextStyle(fontFamily: "sfprotext", fontSize: 25),

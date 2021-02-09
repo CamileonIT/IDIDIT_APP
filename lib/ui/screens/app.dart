@@ -5,6 +5,9 @@ import 'app/home.dart';
 import 'app/sorryy.dart';
 import 'package:recovery/ui/screens/settings.dart';
 import 'package:recovery/ui/utils/util.dart';
+import 'package:recovery/ui/utils/globals.dart' as globals;
+
+import 'notification.dart';
 
 class App extends StatefulWidget {
   @override
@@ -92,7 +95,6 @@ class _AppState extends State<App> {
     initialPage: 0,
     keepPage: true,
   );
-
   Widget buildPageView() {
     return PageView(
       controller: pageController,
@@ -175,8 +177,50 @@ AppBar _mainAppBar(context) {
     ),
     centerTitle: true,
     actions: <Widget>[
-      Image.asset('assets/images/icon_school-bell.png',
-          color: PaypalColors.DarkBlue)
+      GestureDetector(
+        onTap: () {},
+        child: Stack(
+          children: <Widget>[
+            new IconButton(
+                icon: Icon(
+                  Icons.notifications,
+                  color: Colors.blue,
+                ),
+                onPressed: () {
+                  globals.notification = false;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => NotificationView()),
+                  );
+                }),
+            globals.notification
+                ? new Positioned(
+                    right: 11,
+                    top: 11,
+                    child: new Container(
+                      padding: EdgeInsets.all(2),
+                      decoration: new BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      constraints: BoxConstraints(
+                        minWidth: 14,
+                        minHeight: 14,
+                      ),
+                      child: Text(
+                        '1',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 8,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  )
+                : new Container()
+          ],
+        ),
+      )
     ],
     backgroundColor: Colors.transparent,
     elevation: 0.0,

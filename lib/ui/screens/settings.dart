@@ -28,7 +28,7 @@ class _SettingsState extends State<Settings> {
       ),
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
         child: SettingsList(
           backgroundColor: Colors.white,
           sections: [
@@ -37,8 +37,38 @@ class _SettingsState extends State<Settings> {
               tiles: [
                 SettingsTile.switchTile(
                   title: 'Dark Theme',
-                  leading: Icon(Icons.color_lens),
-                  switchValue: true,
+                  leading: Stack(
+                    children: [
+                      Icon(
+                        Icons.color_lens,
+                        color: Colors.blue,
+                      ),
+                      Positioned(
+                        top: 0,
+                        left: 8,
+                        child: new Container(
+                          padding: EdgeInsets.all(2),
+                          decoration: new BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          constraints: BoxConstraints(
+                            minWidth: 14,
+                            minHeight: 14,
+                          ),
+                          child: Text(
+                            'Pro',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  switchValue: false,
                   onToggle: (bool value) {},
                 ),
               ],
@@ -48,18 +78,92 @@ class _SettingsState extends State<Settings> {
               tiles: [
                 SettingsTile.switchTile(
                   title: 'Achievements',
-                  leading: Icon(Icons.description),
-                  switchValue: true,
+                  leading: Stack(
+                    children: [
+                      Icon(
+                        Icons.description,
+                        color: Colors.blue,
+                      ),
+                      Positioned(
+                        top: 0,
+                        left: 8,
+                        child: new Container(
+                          padding: EdgeInsets.all(2),
+                          decoration: new BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          constraints: BoxConstraints(
+                            minWidth: 14,
+                            minHeight: 14,
+                          ),
+                          child: Text(
+                            'Pro',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  switchValue: false,
                   onToggle: (bool value) {},
                 ),
                 SettingsTile.switchTile(
                   title: 'Daily Quotes',
-                  leading: Icon(Icons.format_quote_sharp),
+                  leading: Icon(
+                    Icons.format_quote_sharp,
+                  ),
                   switchValue: true,
                   onToggle: (bool value) {},
                 ),
               ],
-            )
+            ),
+            SettingsSection(
+              title: 'Ads',
+              tiles: [
+                SettingsTile.switchTile(
+                  title: 'Remove Ads',
+                  trailing: Text("Pro"),
+                  leading: Stack(
+                    children: [
+                      Icon(
+                        Icons.ad_units,
+                        color: Colors.blue,
+                      ),
+                      Positioned(
+                        top: 0,
+                        left: 8,
+                        child: new Container(
+                          padding: EdgeInsets.all(2),
+                          decoration: new BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          constraints: BoxConstraints(
+                            minWidth: 14,
+                            minHeight: 14,
+                          ),
+                          child: Text(
+                            'Pro',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  switchValue: false,
+                  onToggle: (bool value) {},
+                ),
+              ],
+            ),
           ],
         ),
       ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:recovery/data/models/addiction.dart';
-import 'package:recovery/services/helper.dart';
+import 'package:recovery/services/addictiondb_helper.dart';
+import 'package:recovery/ui/screens/settings.dart';
+import 'package:recovery/ui/utils/util.dart';
+import 'package:recovery/ui/widgets/confession/gradient.button.blue.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
 
 class AddData extends StatefulWidget {
@@ -18,7 +21,6 @@ class _AddDataState extends State<AddData> {
   bool isUpdate = false;
   int studentIdForUpdate;
   DBHelper dbHelper;
-  final _studentNameController = TextEditingController();
   final _moneyWastedController = TextEditingController();
   final _timeWastedController = TextEditingController();
   List _categories = [
@@ -73,10 +75,44 @@ class _AddDataState extends State<AddData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SQLite CRUD in Flutter'),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Settings()),
+            );
+          },
+          child: Image.asset(
+            'assets/images/icon_settings.png',
+            color: PaypalColors.DarkBlue,
+          ),
+        ),
+        title: SizedBox(
+          height: 60,
+          child: Image.asset(
+            'assets/images/logo.png',
+          ),
+        ),
+        centerTitle: true,
+        actions: <Widget>[
+          Image.asset('assets/images/icon_school-bell.png',
+              color: PaypalColors.DarkBlue)
+        ],
+        backgroundColor: Colors.white,
+        elevation: 0.0,
       ),
-      body: Column(
+      backgroundColor: Colors.white,
+      body: ListView(
         children: <Widget>[
+          SizedBox(
+            child: Image.asset(
+              (_title == null)
+                  ? "assets/images/select_image.png"
+                  : "assets/images/addictions/$_title.png",
+              fit: BoxFit.contain,
+            ),
+            width: 100,
+          ),
           Form(
             key: _formStateKey,
             child: Column(
@@ -85,7 +121,6 @@ class _AddDataState extends State<AddData> {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     height: 80,
-                    width: 200,
                     child: SearchableDropdown.single(
                       items: _categoriesItems,
                       value: _title,
@@ -176,66 +211,22 @@ class _AddDataState extends State<AddData> {
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              RaisedButton(
-                color: Colors.purple,
-                child: Text(
-                  (isUpdate ? 'UPDATE' : 'ADD'),
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {
-                  if (isUpdate) {
-                    if (_formStateKey.currentState.validate()) {
-                      _formStateKey.currentState.save();
-                      dbHelper
-                          .update(Addiction(
-                              studentIdForUpdate,
-                              _title,
-                              DateTime.now().toString(),
-                              _moneyWasted,
-                              _timeWasted))
-                          .then((data) {
-                        setState(() {
-                          isUpdate = false;
-                        });
-                      });
-                    }
-                  } else {
-                    if (_formStateKey.currentState.validate()) {
-                      _formStateKey.currentState.save();
-                      dbHelper.add(Addiction(
-                          null,
-                          _title,
-                          DateTime.now().toString(),
-                          _moneyWasted,
-                          _timeWasted));
-                    }
-                  }
-                  _studentNameController.text = '';
-                  _moneyWastedController.text = '';
-                  refreshStudentList();
-                },
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-              ),
-              RaisedButton(
-                color: Colors.red,
-                child: Text(
-                  (isUpdate ? 'CANCEL UPDATE' : 'CLEAR'),
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {
-                  _studentNameController.text = '';
-                  setState(() {
-                    isUpdate = false;
-                    studentIdForUpdate = null;
-                  });
-                },
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: GradientButtonBlue(
+              onPress: () {
+                if (_formStateKey.currentState.validate()) {
+                  _formStateKey.currentState.save();
+                  dbHelper.add(Addiction(null, _title,
+                      DateTime.now().toString(), _moneyWasted, _timeWasted));
+                }
+                _moneyWastedController.text = '';
+                _moneyWastedController.text = '';
+                refreshStudentList();
+                Navigator.pop(context);
+              },
+              text: "I Promise You",
+            ),
           ),
           const Divider(
             height: 5.0,
