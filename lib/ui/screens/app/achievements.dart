@@ -46,6 +46,11 @@ class _AchievementsState extends State<Achievements> {
                   return ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (context, i) {
+                      var dList = DateTime.parse(snapshot.data[i].lastSeen)
+                          .toLocal()
+                          .toString()
+                          .split(" ");
+                      String formattedDate = dList[0];
                       return Container(
                         height: 75,
                         margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
@@ -63,7 +68,7 @@ class _AchievementsState extends State<Achievements> {
                                 color: Colors.black),
                           ),
                           subtitle: Text(
-                            "${DateTime.parse(snapshot.data[i].lastSeen).toLocal().year}/${DateTime.parse(snapshot.data[i].lastSeen).toLocal().month}/${DateTime.parse(snapshot.data[i].lastSeen).toLocal().day}",
+                            "Since $formattedDate",
                             style: TextStyle(
                                 fontFamily: "worksans",
                                 fontWeight: FontWeight.w300,

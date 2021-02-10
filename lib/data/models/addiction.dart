@@ -4,8 +4,9 @@ class Addiction {
   String lastSeen;
   int moneyWasted;
   int timeWasted;
-  Addiction(
-      this.id, this.title, this.lastSeen, this.moneyWasted, this.timeWasted);
+  int brokenPromises;
+  Addiction(this.id, this.title, this.lastSeen, this.moneyWasted,
+      this.timeWasted, this.brokenPromises);
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
@@ -14,6 +15,7 @@ class Addiction {
       'lastSeen': lastSeen,
       'moneyWasted': moneyWasted,
       'timeWasted': timeWasted,
+      'brokenPromises': brokenPromises,
     };
     return map;
   }
@@ -24,5 +26,6 @@ class Addiction {
     lastSeen = map['lastSeen'];
     moneyWasted = map['moneyWasted'];
     timeWasted = map['timeWasted'];
+    brokenPromises = map['brokenPromises'];
   }
 }

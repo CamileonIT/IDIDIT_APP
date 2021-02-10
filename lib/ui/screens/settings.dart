@@ -240,7 +240,7 @@ class _SettingsState extends State<Settings> {
                     Icons.add_chart,
                     color: Colors.blue,
                   ),
-                  title: "\$2.99 Per Month",
+                  title: "Coming Soon",
                   trailing: RaisedButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recovery/data/models/addiction.dart';
 import 'package:recovery/services/addictiondb_helper.dart';
-import 'package:recovery/ui/widgets/confession/gradient.button.blue.dart';
 
 class ResetData extends StatefulWidget {
   @override
@@ -66,8 +65,8 @@ class _ResetDataState extends State<ResetData> {
                     itemBuilder: (context, i) {
                       var addiction = snapshot.data[i];
                       return Container(
-                        height: 80,
-                        margin: EdgeInsets.all(9),
+                        height: 75,
+                        margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
                         decoration: _tileDecoration(),
                         child: ListTile(
                             leading: SizedBox(
@@ -82,24 +81,32 @@ class _ResetDataState extends State<ResetData> {
                                   color: Colors.black),
                             ),
                             subtitle: Text(
-                              "${DateTime.parse(addiction.lastSeen).toLocal().year}/${DateTime.parse(addiction.lastSeen).toLocal().month}/${DateTime.parse(addiction.lastSeen).toLocal().day}",
+                              "Broken Promises : ${addiction.brokenPromises}",
                               style: TextStyle(
                                   fontFamily: "worksans",
                                   fontWeight: FontWeight.w300,
                                   fontSize: 12),
                             ),
-                            trailing: GradientButtonBlue(
-                              onPress: () {
+                            trailing: RaisedButton(
+                              onPressed: () {
                                 dbHelper.update(Addiction(
                                     addiction.id,
                                     addiction.title,
                                     DateTime.now().toString(),
                                     addiction.moneyWasted,
-                                    addiction.timeWasted));
+                                    addiction.timeWasted,
+                                    addiction.brokenPromises + 1));
                                 refreshStudentList();
                                 Navigator.pop(context);
                               },
-                              text: "Promise Again",
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  side: BorderSide(color: Colors.red)),
+                              color: Colors.redAccent,
+                              child: Text(
+                                "Promise Again",
+                                style: TextStyle(color: Colors.white),
+                              ),
                             )),
                       );
                     },

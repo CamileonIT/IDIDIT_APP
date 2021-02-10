@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'file:///C:/Users/CharukaWijethunga/AndroidStudioProjects/recovery/lib/ui/widgets/sorryy/gradient.button.red.dart';
 import 'package:recovery/ui/widgets/header.widget.dart';
@@ -62,12 +63,21 @@ class ContentDetail extends StatelessWidget {
             ),
           ),
           SizedBox(height: 25),
-          Text(
-            "...",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: size.width * 0.05,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "-6 ",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: size.width * 0.05,
+                    color: Colors.redAccent),
+              ),
+              SizedBox(
+                child: Image.asset("assets/images/happy_red.png"),
+                height: 26,
+              )
+            ],
           ),
           SizedBox(height: 25),
           Container(

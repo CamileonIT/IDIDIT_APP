@@ -24,7 +24,7 @@ class DBHelper {
 
   _onCreate(Database db, int version) async {
     await db.execute(
-      'CREATE TABLE student (id INTEGER PRIMARY KEY, title TEXT, lastSeen TEXT, moneyWasted INTEGER,timeWasted INTEGER)',
+      'CREATE TABLE student (id INTEGER PRIMARY KEY, title TEXT, lastSeen TEXT, moneyWasted INTEGER,timeWasted INTEGER,brokenPromises INTEGER)',
     );
   }
 
@@ -36,8 +36,14 @@ class DBHelper {
 
   Future<List<Addiction>> getStudents() async {
     var dbClient = await db;
-    List<Map> maps = await dbClient.query('student',
-        columns: ['id', 'title', 'lastSeen', 'moneyWasted', 'timeWasted']);
+    List<Map> maps = await dbClient.query('student', columns: [
+      'id',
+      'title',
+      'lastSeen',
+      'moneyWasted',
+      'timeWasted',
+      'brokenPromises'
+    ]);
     List<Addiction> students = [];
     if (maps.length > 0) {
       for (int i = 0; i < maps.length; i++) {

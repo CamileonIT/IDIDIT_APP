@@ -24,7 +24,9 @@ class _LoginPageState extends State<LoginPage> {
                 child: Image.asset("assets/images/logo.png"),
                 width: 200,
               ),
-              SizedBox(height: 50),
+              SizedBox(
+                child: Image.asset("assets/images/login_main.png"),
+              ),
               loading
                   ? LoadingBouncingGrid.square(
                       size: 40,

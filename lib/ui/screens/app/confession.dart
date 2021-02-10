@@ -63,12 +63,21 @@ class ContentDetail extends StatelessWidget {
             ),
           ),
           SizedBox(height: 25),
-          Text(
-            "...",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: size.width * 0.05,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "+5 ",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: size.width * 0.05,
+                    color: Colors.green),
+              ),
+              SizedBox(
+                child: Image.asset("assets/images/happy_green.png"),
+                height: 26,
+              )
+            ],
           ),
           SizedBox(height: 25),
           Container(

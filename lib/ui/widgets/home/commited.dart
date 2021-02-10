@@ -16,7 +16,6 @@ class _CommitedState extends State<Commited> {
   bool isUpdate = false;
   int studentIdForUpdate;
   DBHelper dbHelper;
-  int sumOfMoneyWasted = 0;
 
   @override
   void initState() {
@@ -36,17 +35,27 @@ class _CommitedState extends State<Commited> {
     return FutureBuilder(
       future: students,
       builder: (context, snapshot) {
+        globals.happiness = 50;
+        int sumOfMoneyWasted = 0;
         if (snapshot.hasData) {
           return ListView.builder(
             shrinkWrap: true,
             physics: ScrollPhysics(),
             itemCount: snapshot.data.length,
             itemBuilder: (context, i) {
+              globals.happiness += 5;
+              globals.happiness =
+                  globals.happiness - snapshot.data[i].brokenPromises * 6;
               sumOfMoneyWasted = sumOfMoneyWasted +
                   WastageCalculator.moneyWasted(
                       snapshot.data[i].lastSeen, snapshot.data[i].moneyWasted);
 
               globals.sumOfMoneyWasted = sumOfMoneyWasted;
+              var dList = DateTime.parse(snapshot.data[i].lastSeen)
+                  .toLocal()
+                  .toString()
+                  .split(" ");
+              String formattedDate = dList[0];
               return Padding(
                 padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
                 child: Container(
@@ -64,7 +73,7 @@ class _CommitedState extends State<Commited> {
                           color: Colors.black),
                     ),
                     subtitle: Text(
-                      '${snapshot.data[i].lastSeen}',
+                      'Since $formattedDate',
                       style: TextStyle(
                           fontFamily: "worksans",
                           fontWeight: FontWeight.w300,

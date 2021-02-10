@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'app/achievements.dart';
 import 'app/confession.dart';
 import 'app/home.dart';
@@ -16,7 +17,6 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   int index = 0;
-
   List<BottomNavigationBarItem> buildBottomNavBarItems() {
     return [
       BottomNavigationBarItem(
@@ -24,7 +24,7 @@ class _AppState extends State<App> {
           child: Container(
             color: index == 0 ? PaypalColors.LightBlue : PaypalColors.Grey,
             child: Image.asset(
-              "assets/images/home.png",
+              "assets/images/navigation/home.png",
               fit: BoxFit.scaleDown,
               width: 35.0,
               height: 35.0,
@@ -41,7 +41,7 @@ class _AppState extends State<App> {
             child: Container(
               color: index == 1 ? PaypalColors.LightBlue : PaypalColors.Grey,
               child: Image.asset(
-                "assets/images/confession.png",
+                "assets/images/navigation/confession.png",
                 fit: BoxFit.scaleDown,
                 width: 35.0,
                 height: 35.0,
@@ -110,11 +110,6 @@ class _AppState extends State<App> {
     );
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
   void pageChanged(int index) {
     setState(() {
       this.index = index;
@@ -157,17 +152,17 @@ class _AppState extends State<App> {
 
 AppBar _mainAppBar(context) {
   return AppBar(
-    leading: GestureDetector(
-      onTap: () {
+    leading: IconButton(
+      icon: Icon(
+        Icons.settings,
+        color: Colors.blue,
+      ),
+      onPressed: () {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => Settings()),
         );
       },
-      child: Image.asset(
-        'assets/images/icon_settings.png',
-        color: PaypalColors.DarkBlue,
-      ),
     ),
     title: SizedBox(
       height: 60,

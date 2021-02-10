@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:recovery/services/sign_in.dart';
+import 'package:recovery/ui/screens/login_page.dart';
 import 'package:recovery/ui/screens/profile.dart';
 import 'package:recovery/ui/utils/util.dart';
 import 'package:recovery/ui/widgets/home/commited.dart';
@@ -13,11 +15,48 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
           _debitCard(context),
+          SizedBox(
+            height: 5,
+          ),
+          Wrap(
+            children: [
+              SizedBox(
+                child: Image.asset(globals.happiness > 50
+                    ? "assets/images/happy_green.png"
+                    : "assets/images/happy_red.png"),
+                height: 30,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width / 1.6,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 6, 0, 0),
+                  child: FAProgressBar(
+                    size: 18,
+                    animatedDuration: Duration(milliseconds: 4000),
+                    currentValue: globals.happiness,
+                    displayText: '%',
+                    changeColorValue: 55,
+                    changeProgressColor: Colors.green,
+                    progressColor: Colors.red,
+                  ),
+                ),
+              ),
+            ],
+          ),
           _activityText(),
           Commited(),
         ],
@@ -115,21 +154,30 @@ Container _debitCard(context) {
                 color: PaypalColors.LightGrey,
                 textColor: PaypalColors.DarkBlue,
                 child: Text(
-                  "$name",
+                  name != null ? "$name" : "Sign In",
                   style: TextStyle(
                       fontFamily: "worksans",
                       color: PaypalColors.DarkBlue,
                       fontSize: 12),
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute<Null>(
-                      builder: (BuildContext context) {
-                        return Profile();
-                      },
-                      fullscreenDialog: true,
-                    ),
-                  );
+                  (name == null)
+                      ? Navigator.of(context).push(
+                          MaterialPageRoute<Null>(
+                            builder: (BuildContext context) {
+                              return LoginPage();
+                            },
+                            fullscreenDialog: true,
+                          ),
+                        )
+                      : Navigator.of(context).push(
+                          MaterialPageRoute<Null>(
+                            builder: (BuildContext context) {
+                              return Profile();
+                            },
+                            fullscreenDialog: true,
+                          ),
+                        );
                 },
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
@@ -173,20 +221,6 @@ Container _activityText() {
               fontFamily: "worksans",
               fontSize: 15,
               fontWeight: FontWeight.w600),
-        ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'VIEW ALL',
-              style: TextStyle(
-                  fontFamily: "worksans",
-                  fontWeight: FontWeight.w400,
-                  fontSize: 10,
-                  color: PaypalColors.Grey),
-            ),
-            Icon(Icons.chevron_right, color: PaypalColors.Black50),
-          ],
         ),
       ],
     ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:recovery/ui/screens/login_page.dart';
+import 'package:recovery/ui/screens/app.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           iconTheme: IconThemeData(
             color: Colors.blue,
           )),
-      home: LoginPage(),
+      home: App(),
     );
   }
 }

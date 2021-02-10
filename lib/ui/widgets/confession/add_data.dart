@@ -93,29 +93,63 @@ class _AddDataState extends State<AddData> {
       ),
       backgroundColor: Colors.white,
       body: ListView(
+        reverse: true,
+        shrinkWrap: true,
         children: <Widget>[
-          SizedBox(
-            child: Image.asset(
-              (_title == null)
-                  ? "assets/images/select_image.png"
-                  : "assets/images/addictions/$_title.png",
-              fit: BoxFit.contain,
+          const Divider(
+            height: 5.0,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 75),
+            child: GradientButtonBlue(
+              onPress: () {
+                if (_title != null) {
+                  if (_formStateKey.currentState.validate()) {
+                    _formStateKey.currentState.save();
+                    dbHelper.add(Addiction(
+                        null,
+                        _title,
+                        DateTime.now().toString(),
+                        _moneyWasted,
+                        _timeWasted,
+                        0));
+                  }
+                  _moneyWastedController.text = '';
+                  _moneyWastedController.text = '';
+                  refreshStudentList();
+                  Navigator.pop(context);
+                }
+              },
+              text: "I Promise You",
             ),
-            width: 100,
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Center(
+              child: Text(
+            "Promise me you won't do this again.",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          )),
+          SizedBox(
+            height: 30,
           ),
           Form(
             key: _formStateKey,
             child: Column(
               children: <Widget>[
+                //Title
+                SizedBox(
+                  height: 20,
+                ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
                   child: Container(
                     height: 80,
                     child: SearchableDropdown.single(
-                      clearIcon: null,
                       items: _categoriesItems,
                       value: _title,
-                      hint: "Select Your Addiction",
+                      hint: "Select here",
                       searchHint: "Select Your Addiction",
                       onChanged: (value) {
                         setState(() {
@@ -126,83 +160,83 @@ class _AddDataState extends State<AddData> {
                     ),
                   ),
                 ),
-                //Title
-
                 //Money Wasted
 
-                Padding(
-                  padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
-                  child: TextFormField(
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please Enter Money Wasted';
-                      }
-                      if (value.trim() == "")
-                        return "Only Numbers are Valid!!!";
-                      return null;
-                    },
-                    onSaved: (value) {
-                      _moneyWasted = int.parse(value);
-                    },
-                    controller: _moneyWastedController,
-                    decoration: InputDecoration(
-                      hintText: 'Money Wasted',
-                      contentPadding:
-                          EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(32.0)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text("What were the average \ndaily expenses?"),
+                    Container(
+                      width: 100,
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please Enter Money Wasted';
+                          }
+                          if (value.trim() == "")
+                            return "Only Numbers are Valid!!!";
+                          return null;
+                        },
+                        onSaved: (value) {
+                          _moneyWasted = int.parse(value);
+                        },
+                        controller: _moneyWastedController,
+                        decoration: InputDecoration(
+                          hintText: '',
+                          contentPadding:
+                              EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(32.0)),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
                 //Time Wasted
-                Padding(
-                  padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
-                  child: TextFormField(
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please Enter time Wasted';
-                      }
-                      if (value.trim() == "")
-                        return "Only Numbers are Valid!!!";
-                      return null;
-                    },
-                    onSaved: (value) {
-                      _timeWasted = int.parse(value);
-                    },
-                    controller: _timeWastedController,
-                    decoration: InputDecoration(
-                      hintText: 'Time Wasted',
-                      contentPadding:
-                          EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(32.0)),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text("How much time did you \nusually spend?"),
+                    Container(
+                      width: 100,
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please Enter time Wasted';
+                          }
+                          if (value.trim() == "")
+                            return "Only Numbers are Valid!!!";
+                          return null;
+                        },
+                        onSaved: (value) {
+                          _timeWasted = int.parse(value);
+                        },
+                        controller: _timeWastedController,
+                        decoration: InputDecoration(
+                          hintText: '',
+                          contentPadding:
+                              EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(32.0)),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: GradientButtonBlue(
-              onPress: () {
-                if (_formStateKey.currentState.validate()) {
-                  _formStateKey.currentState.save();
-                  dbHelper.add(Addiction(null, _title,
-                      DateTime.now().toString(), _moneyWasted, _timeWasted));
-                }
-                _moneyWastedController.text = '';
-                _moneyWastedController.text = '';
-                refreshStudentList();
-                Navigator.pop(context);
-              },
-              text: "I Promise You",
-            ),
-          ),
-          const Divider(
-            height: 5.0,
+          Image.asset(
+            (_title == null)
+                ? "assets/images/select_image.png"
+                : "assets/images/addictions/$_title.png",
+            fit: BoxFit.contain,
+            height: 250,
           ),
         ],
       ),
