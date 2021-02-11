@@ -165,7 +165,7 @@ class _AddDataState extends State<AddData> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("What were the average \ndaily expenses?"),
+                    Text("What were the average \ndaily expenses? (\$)"),
                     Container(
                       width: 100,
                       child: TextFormField(
@@ -200,7 +200,7 @@ class _AddDataState extends State<AddData> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("How much time did you \nusually spend?"),
+                    Text("How much time did you \nusually spend? (Min)"),
                     Container(
                       width: 100,
                       child: TextFormField(

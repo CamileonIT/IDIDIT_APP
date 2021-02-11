@@ -16,7 +16,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -29,34 +28,36 @@ class _HomeState extends State<Home> {
           SizedBox(
             height: 5,
           ),
-          Wrap(
-            children: [
-              SizedBox(
-                child: Image.asset(globals.happiness > 50
-                    ? "assets/images/happy_green.png"
-                    : "assets/images/happy_red.png"),
-                height: 30,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width / 1.6,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 6, 0, 0),
-                  child: FAProgressBar(
-                    size: 18,
-                    animatedDuration: Duration(milliseconds: 4000),
-                    currentValue: globals.happiness,
-                    displayText: '%',
-                    changeColorValue: 55,
-                    changeProgressColor: Colors.green,
-                    progressColor: Colors.red,
-                  ),
-                ),
-              ),
-            ],
-          ),
+          globals.happiness != null
+              ? Wrap(
+                  children: [
+                    SizedBox(
+                      child: Image.asset(globals.happiness > 50
+                          ? "assets/images/happy_green.png"
+                          : "assets/images/happy_red.png"),
+                      height: 30,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width / 1.6,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 6, 0, 0),
+                        child: FAProgressBar(
+                          size: 18,
+                          animatedDuration: Duration(milliseconds: 2000),
+                          currentValue: globals.happiness,
+                          displayText: '%',
+                          changeColorValue: 55,
+                          changeProgressColor: Colors.green,
+                          progressColor: Colors.red,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              : Container(),
           _activityText(),
           Commited(),
         ],

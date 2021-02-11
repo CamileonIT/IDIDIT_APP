@@ -46,6 +46,11 @@ class _CommitedState extends State<Commited> {
               globals.happiness += 5;
               globals.happiness =
                   globals.happiness - snapshot.data[i].brokenPromises * 6;
+              if (globals.happiness > 100) {
+                globals.happiness = 100;
+              } else if (globals.happiness < 0) {
+                globals.happiness = 0;
+              }
               sumOfMoneyWasted = sumOfMoneyWasted +
                   WastageCalculator.moneyWasted(
                       snapshot.data[i].lastSeen, snapshot.data[i].moneyWasted);

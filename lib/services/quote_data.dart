@@ -50,6 +50,7 @@ class _QuoteDataState extends State<QuoteData>
                   margin: EdgeInsets.fromLTRB(30, 0, 30, 0),
                   child: Text(
                     snapshot.data.quoteText,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 25.0,
                         color: Colors.black,

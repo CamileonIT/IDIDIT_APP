@@ -5,4 +5,4 @@ bool notification = true;
 bool darkTheme = false;
 bool removeAds = false;
 bool proEnabled = false;
-int happiness = 50;
+int happiness;
