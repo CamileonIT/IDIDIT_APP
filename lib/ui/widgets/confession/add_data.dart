@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:recovery/data/models/addiction.dart';
 import 'package:recovery/services/addictiondb_helper.dart';
+import 'package:recovery/ui/screens/app.dart';
 import 'package:recovery/ui/widgets/confession/gradient.button.blue.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
 
@@ -118,6 +119,10 @@ class _AddDataState extends State<AddData> {
                   _moneyWastedController.text = '';
                   refreshStudentList();
                   Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => App()),
+                  );
                 }
               },
               text: "I Promise You",

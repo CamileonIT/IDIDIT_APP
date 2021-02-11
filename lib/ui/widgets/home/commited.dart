@@ -110,7 +110,7 @@ class _CommitedState extends State<Commited> {
             },
           );
         }
-        if (snapshot.data == null || snapshot.data.length == 0) {
+        if (snapshot.hasData == false || snapshot.data.length == 0) {
           return Text('No Data Found');
         }
         return CircularProgressIndicator();

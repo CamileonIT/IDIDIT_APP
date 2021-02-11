@@ -5,6 +5,7 @@ import 'package:recovery/services/sign_in.dart';
 import 'package:recovery/ui/screens/login_page.dart';
 import 'package:recovery/ui/screens/profile.dart';
 import 'package:recovery/ui/utils/util.dart';
+import 'package:recovery/ui/widgets/confession/add_data.dart';
 import 'package:recovery/ui/widgets/home/commited.dart';
 import 'package:recovery/ui/utils/globals.dart' as globals;
 
@@ -58,7 +59,7 @@ class _HomeState extends State<Home> {
                   ],
                 )
               : Container(),
-          _activityText(),
+          _activityText(context),
           Commited(),
         ],
       ),
@@ -205,7 +206,7 @@ Container _debitCard(context) {
   );
 }
 
-Container _activityText() {
+Container _activityText(context) {
   return Container(
     decoration: BoxDecoration(
         border: Border(
@@ -223,6 +224,22 @@ Container _activityText() {
               fontSize: 15,
               fontWeight: FontWeight.w600),
         ),
+        RaisedButton(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18.0),
+              side: BorderSide(color: Colors.blueAccent)),
+          color: Colors.blue,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AddData()),
+            );
+          },
+          child: Text(
+            "Add",
+            style: TextStyle(color: Colors.white),
+          ),
+        )
       ],
     ),
   );
