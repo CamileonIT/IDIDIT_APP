@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -223,7 +224,9 @@ class _SettingsState extends State<Settings> {
                         borderRadius: BorderRadius.circular(18.0),
                         side: BorderSide(color: Colors.blue)),
                     color: Colors.blue,
-                    onPressed: () {},
+                    onPressed: () {
+                      _launchURL();
+                    },
                     child: Text(
                       "Update",
                       style: TextStyle(color: Colors.white),
@@ -240,7 +243,7 @@ class _SettingsState extends State<Settings> {
                     Icons.add_chart,
                     color: Colors.blue,
                   ),
-                  title: "Coming Soon",
+                  title: "Coming Soon...",
                   trailing: RaisedButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
@@ -254,10 +257,43 @@ class _SettingsState extends State<Settings> {
                   ),
                 ),
               ],
+            ),
+            SettingsSection(
+              title: "Premium Edition",
+              tiles: [
+                SettingsTile(
+                  leading: Icon(
+                    Icons.add_chart,
+                    color: Colors.blue,
+                  ),
+                  title: "Coming Soon...",
+                  trailing: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: BorderSide(color: Colors.red)),
+                    color: Colors.redAccent,
+                    onPressed: () {},
+                    child: Text(
+                      "Buy",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
             )
           ],
         ),
       ),
     );
+  }
+}
+
+_launchURL() async {
+  const url =
+      'https://play.google.com/store/apps/details?id=com.camileonit.recovery';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }

@@ -47,6 +47,7 @@ dependencies:
   google_sign_in: ^4.5.9
   loading_animations: ^2.1.0
   flutter_animation_progress_bar: ^1.0.6
+  url_launcher: ^5.7.10
 
 dev_dependencies:
   flutter_test:
