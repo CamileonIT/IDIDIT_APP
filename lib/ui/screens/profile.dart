@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:recovery/services/sign_in.dart';
 import 'package:recovery/ui/utils/util.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'login_page.dart';
 
@@ -62,13 +63,15 @@ class _ProfileState extends State<Profile> {
                     color: PaypalColors.LightGrey,
                     textColor: PaypalColors.DarkBlue,
                     child: Text(
-                      "camileonit.me/ididit",
+                      "camileonit.me/IDIDIT/",
                       style: TextStyle(
                           fontFamily: "worksans",
                           color: PaypalColors.DarkBlue,
                           fontSize: 14),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      _launchURL();
+                    },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
@@ -90,18 +93,13 @@ class _ProfileState extends State<Profile> {
                             borderSide: BorderSide(color: Colors.white),
                           ),
                           // contentPadding: EdgeInsets.only(top: 40, bottom: 20),
-                          suffixIcon: Padding(
-                            padding: const EdgeInsetsDirectional.only(
-                                top: 18, start: 50),
-                            child:
-                                Icon(Icons.chevron_right, color: Colors.white),
-                          ),
                         ),
                         style: TextStyle(
                             fontFamily: "worksans",
                             color: Colors.white,
                             fontSize: 18),
                         initialValue: "$email",
+                        enabled: false,
                       ),
                       SizedBox(height: 10),
                     ],
@@ -138,5 +136,14 @@ class _ProfileState extends State<Profile> {
         ),
       ),
     );
+  }
+}
+
+_launchURL() async {
+  const url = 'http://www.camileonit.me/IDIDIT/';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
