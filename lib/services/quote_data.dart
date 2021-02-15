@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:recovery/data/models/quote.dart';
 import 'package:share/share.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class QuoteData extends StatefulWidget {
   @override
@@ -80,6 +81,20 @@ class _QuoteDataState extends State<QuoteData>
                             '${snapshot.data.quoteText}--${snapshot.data.quoteAuthor}');
                       },
                     ),
+                    IconButton(
+                      icon: Image.asset('assets/images/fb.png'),
+                      onPressed: () {
+                        _launchURL(
+                            "https://www.facebook.com/camileonit.ididit/");
+                      },
+                    ),
+                    IconButton(
+                      icon: Image.asset('assets/images/insta.png'),
+                      onPressed: () {
+                        _launchURL(
+                            "https://www.instagram.com/ididit.official/");
+                      },
+                    ),
                   ],
                 )
               ],
@@ -92,5 +107,13 @@ class _QuoteDataState extends State<QuoteData>
         return Center(child: CircularProgressIndicator());
       },
     );
+  }
+}
+
+_launchURL(url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
