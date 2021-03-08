@@ -86,9 +86,8 @@ class ContentDetail extends StatelessWidget {
             child: GradientButtonRed(
               text: "Yes I did. Please forgive me.",
               onPress: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ResetData()),
+                Navigator.of(context).pushNamed(
+                  '/reset',
                 );
               },
             ),

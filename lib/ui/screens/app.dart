@@ -158,9 +158,8 @@ AppBar _mainAppBar(context) {
         color: Colors.blue,
       ),
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Settings()),
+        Navigator.of(context).pushNamed(
+          '/settings',
         );
       },
     ),
@@ -183,9 +182,8 @@ AppBar _mainAppBar(context) {
                 ),
                 onPressed: () {
                   globals.notification = false;
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => NotificationView()),
+                  Navigator.of(context).pushNamed(
+                    '/notifications',
                   );
                 }),
             globals.notification

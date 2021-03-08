@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:recovery/services/routes/route_generator.dart';
 import 'package:recovery/ui/screens/app.dart';
 
 void main() {
@@ -15,13 +16,14 @@ class MyApp extends StatelessWidget {
     ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Recovery',
+      title: 'IDIDIT',
       theme: ThemeData(
           primarySwatch: Colors.blue,
           iconTheme: IconThemeData(
             color: Colors.blue,
           )),
       home: App(),
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

@@ -86,9 +86,8 @@ class ContentDetail extends StatelessWidget {
             child: GradientButtonBlue(
               text: "Yes I have. Please help me.",
               onPress: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AddData()),
+                Navigator.of(context).pushNamed(
+                  '/commited',
                 );
               },
             ),

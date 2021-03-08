@@ -63,7 +63,7 @@ class _ProfileState extends State<Profile> {
                     color: PaypalColors.LightGrey,
                     textColor: PaypalColors.DarkBlue,
                     child: Text(
-                      "camileonit.me/IDIDIT/",
+                      "ididit.camileonit.me",
                       style: TextStyle(
                           fontFamily: "worksans",
                           color: PaypalColors.DarkBlue,
@@ -140,7 +140,7 @@ class _ProfileState extends State<Profile> {
 }
 
 _launchURL() async {
-  const url = 'http://www.camileonit.me/IDIDIT/';
+  const url = 'http://ididit.camileonit.me/';
   if (await canLaunch(url)) {
     await launch(url);
   } else {

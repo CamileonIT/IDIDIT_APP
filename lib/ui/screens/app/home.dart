@@ -230,13 +230,12 @@ Container _activityText(context) {
               side: BorderSide(color: Colors.blueAccent)),
           color: Colors.blue,
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => AddData()),
+            Navigator.of(context).pushNamed(
+              '/commited',
             );
           },
           child: Text(
-            "Add",
+            "Commit",
             style: TextStyle(color: Colors.white),
           ),
         )
